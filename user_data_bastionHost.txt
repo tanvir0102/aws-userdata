@@ -1,0 +1,11 @@
+##################################################
+BASTION USER_DATA
+##################################################
+#!/bin/bash
+sudo echo '%p@ssw0rd%' | sudo passwd ec2-user --stdin
+sudo yum update -y
+sudo yum install -y git
+mkdir /home/ec2-user/.aws
+git clone https://github.com/tanvir0102/aws-userdata.git
+cd aws-userdata/
+mv config /home/ec2-user/.aws/
