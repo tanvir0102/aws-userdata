@@ -1,0 +1,20 @@
+{
+    "Version": "2012-10-17",
+    "Id": "myS3PolicyId",
+    "Statement": [
+        {
+            "Sid": "statement1",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::mydevopsbucket2018/*",
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "13.233.15.0/24"
+                }
+            }
+        }
+    ]
+}
