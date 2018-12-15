@@ -1,0 +1,70 @@
+{
+    "Version": "2012-10-17",
+    "Id": "myS3PolicyId",
+    "Statement": [
+        {
+            "Sid": "statement1",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action":["s3:GetObject"]  ,
+            "Resource": "arn:aws:s3:::mybucketname/*",
+            "Condition" : {
+                "IpAddress" : {
+                    "aws:SourceIp": "192.168.143.0/24" 
+                },
+                "NotIpAddress" : {
+                    "aws:SourceIp": "192.168.143.188/32" 
+                } 
+            } 
+        } 
+    ]
+}
+
+
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Sid":"AddPerm",
+      "Effect":"Allow",
+      "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::examplebucket/*"]
+    }
+  ]
+}
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
+
+{
+  "Version": "2012-10-17",
+  "Id": "S3PolicyId1",
+  "Statement": [
+    {
+      "Sid": "IPAllow",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::examplebucket/*",
+      "Condition": {
+         "IpAddress": {"aws:SourceIp": "54.240.143.0/24"},
+         "NotIpAddress": {"aws:SourceIp": "54.240.143.188/32"} 
+      } 
+    } 
+  ]
+}
+
+Whitelist
+
+"Condition" :  {
+       "IpAddress" : {
+          "aws:SourceIp" : ["192.168.176.0/24","192.168.143.0/24"]
+      }
+}
+Blacklist
+
+"Condition" :  {
+       "NotIpAddress" : {
+          "aws:SourceIp" : ["192.168.176.0/24","192.168.143.0/24"]
+      }
+}
