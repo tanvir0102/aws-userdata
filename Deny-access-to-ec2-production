@@ -1,0 +1,41 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1442002929000",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1442002991000",
+            "Effect": "Deny",
+            "Action": [
+                "ec2:CreateTags",
+                "ec2:DeleteTags"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "Stmt1442003029000",
+            "Effect": "Deny",
+            "Action": [
+                "ec2:*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/env": "production"
+                }
+            },
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
