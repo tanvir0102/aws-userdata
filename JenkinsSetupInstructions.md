@@ -1,7 +1,8 @@
-#Jenkins Setup on Centos/Amazon Linux on EC2
+##Jenkins Setup on Centos/Amazon Linux on EC2
 
-##Native installation:
-###Step01: Check Java Version/installation
+#Native installation:
+
+#Step01: Check Java Version/installation
 java-version
 [ansadm@localhost ~]$ java -version
 openjdk version "1.8.0_131"
@@ -37,4 +38,3 @@ netstat -ntulp | grep 8080
 
 Step07: Access Jenkins
 Go to your browser and type http://<ipaddress>:<8080>/
-Presently you ought to ready to see the Jenkins dashboard like below image:
